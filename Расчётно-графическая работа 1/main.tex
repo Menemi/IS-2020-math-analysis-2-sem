@@ -69,7 +69,7 @@ $ [a, b] = [0; 3\pi/2] $\\
 - Изобразили ступенчатую фигуру на основе выбранного разбиения и точек внутри элементарных отрезков\\
 
 \begin{figure}[h!]
-\center{\includegraphics[scale=0.1]{1}}
+\center{\fbox{\includegraphics[scale=0.1]{1}}}
 \caption*{\url{https://clck.ru/UjTMB}}
 \end{figure}
 \newpage
@@ -105,28 +105,29 @@ $ \lim_{A\to +\infty} (\frac{-\ln{x}}{(a-1)x^{(a-1)}} - \frac{1}{(a-1)^2 x^{a-1}
 В зависимости от $ a $, может быть и сходящимся и расходящимся\\\\
 2. \\
 \begin{figure}[h!]
-\center{\includegraphics[scale=0.15]{20}}
+\center{\fbox{\includegraphics[scale=0.15]{20}}}
 \caption*{$ \alpha = 0 $}
 \end{figure}\\
 \begin{figure}[h!]
-\center{\includegraphics[scale=0.15]{23}}
+\center{\fbox{\includegraphics[scale=0.15]{23}}}
 \caption*{$ \alpha = 3 $}
 \end{figure}\\\\\\\\\\
 \begin{figure}[h!]
-\center{\includegraphics[scale=0.15]{2-3}}
+\center{\fbox{\includegraphics[scale=0.15]{2-3}}}
 \caption*{$ \alpha = -3 $}
 \end{figure}\\
 \begin{figure}[h!]
-\center{\includegraphics[scale=0.15]{210}}
+\center{\fbox{\includegraphics[scale=0.15]{210}}}
 \caption*{$ \alpha = 10 $}
 \end{figure}\\\\\\\\\\
 \begin{figure}[h!]
-\center{\includegraphics[scale=0.15]{2-10}}
+\center{\fbox{\includegraphics[scale=0.15]{2-10}}}
 \caption*{$ \alpha = -10 $}
 \end{figure}\\\\
 3. При $ \alpha = 0 $:\\
 \large
-$ \int\limits \frac{\ln{x}}{x^{\alpha}}dx = \int\limits \frac{\ln{x}}{x^0}dx = \int\limits \ln{x}dx = u\upsilon - \int\limits ud\upsilon = x\ln{x} - \int\limits x\frac{1}{x}dx = x\ln{x} - x + C = x(\ln{x} - 1) + C = f(x) = \lim_{x\to \infty} f(x) = \infty => $ расходится\\\\
+$ \int\limits \frac{\ln{x}}{x^{\alpha}}dx = \int\limits \frac{\ln{x}}{x^0}dx = \int\limits \ln{x}dx = u\upsilon - \int\limits ud\upsilon = x\ln{x} - \int\limits x\frac{1}{x}dx = x\ln{x} - x + C = x(\ln{x} - 1) + C $\\
+$ f(x) = \lim_{x\to \infty} f(x) = \infty => $ расходится\\\\
 \normalsize
 При $ \alpha = 1 $:\\
 \large
@@ -156,18 +157,61 @@ $ \lim_{x\to +\infty} \frac{f_1}{f_2} = +\infty $
 \normalsize
 \subsection{Найти давление воды на поверхность цилиндра диаметром 4м и высотой 6м, если его верхнее основание находится на уровне свободной поверхности воды.}
 \begin{figure}[h!]
-\includegraphics[scale=1]{31}
-\end{figure}\\
-$ p = \rho gxS \\ dp = \rho gxdS = p_1 $\\
+\fbox{\includegraphics[scale=1]{31}}
+\end{figure}
+\\
+$ p = \rho gxS $\\
+$ dp = \rho gxdS = p_1 $\\
 \begin{figure}[h!]
-\includegraphics[scale=1]{33}
+\fbox{\includegraphics[scale=1]{33}}
 \end{figure}\\
+$ dS_1 = dx*dl $\\
+$ dp_1 = \rho gk*dx*dl $\\
+$ p_1 = \int\limits^{2*2\pi}_0 \rho gk*dx*dl = \rho gk*dx*dl \int\limits^{2*2\pi}_0 dl = 4\pi \rho gk*dx $\\
+$ p = \int\limits^6_0 4\pi \rho gx*dx = 4\pi \rho g \int\limits^6_0 x*dx = 4\pi \rho g\frac{x^2}{2} |^6_0 = 72\pi \rho g $\\
+\small$ g = 9.81 $\\
+\normalsize$ 72\pi \rho g \approx 2.21897*10^6$
 \newpage
 \Large
 \section{Приближенные вычисления определенного интеграла}
 \normalsize
 \subsection{Вычислить значения интеграла $ I^2_0 = \int\limits^2_0 f(x)dx $ по формулам трапеций и парабол при $ h = 1 $, сравнить полученные результаты с точным значением.}
-В качестве подынтегральных функций взять:\\
-a) $ f(x) = 1 + x $\\
-b) $ f(x) = 1 + x^3 $\\
+\Large a) $ f(x) = 1 + x $:\\\\
+\large\textit{Метод трапеций:}\\
+\normalsize
+Интервал $ [a; b] = [0; 2], h = 1 $\\
+Интервал длины "$h$" $ [0; 1], [1; 2] $\\
+$ x_0 = 0 \\ x_1 = 1 \\ x_2 = 2 $\\
+$ f(x_0) = 1 \\ f(x_1) = 2 \\ f(x_2) = 3 $\\
+1) $ \int\limits^2_0 f(x) \approx \frac{h}{2} (f(x_0) + f(x_1) + f(x_1) + f(x_2)) = \frac{1}{2} (1+4+3) = 4 $\\
+2) \large\textit{Метод парабол:}\\
+\normalsize
+Также разбиваем на отрезки\\
+$ x_{2i-2} = x_0 = 0 $\\
+$ x_{2i-1} = x_1 = 1 $\\
+$ x_{2i} = x_2 = 2 $\\
+$ \int\limits^2_0 f(x) \approx \frac{h}{3} (f(0) + 4f(1) + f(2)) = \frac{1}{3} (1 + 8 + 3) = 4 $
+\newpage
+\small Вывод конечной формулы:
+\normalsize
+\begin{figure}[h!]
+\center{\fbox{\includegraphics[scale=0.6]{cout4}}}
+\caption*{\url{https://clck.ru/UmPuV}}
+\end{figure}\\
+3) \large\textit{Подсчёт интеграла напрямую:}\\
+\normalsize
+$ \int\limits^2_0 (x + 1)dx = \frac{x^2}{2} + x |^2_0 = \frac{4}{2} + 2 - 0 = 4 $\\
+\\\\
+\Large b) $ f(x) = 1 + x^3 $\\
+\normalsize
+$ x_0 = 0 $\\
+$ x_1 = 1 $\\
+$ x_2 = 2 $\\\\
+Аналогично пункту (а):\\\\
+1) $ \int\limits^2_0 \approx \frac{h}{2} (f(x_0) + 2f(x_1) + f(x_2)) = \frac{1}{2} (1+4+9) = 7 $ - большая погрешность, так как много добавленной (добавочной) лишней площади\\
+\begin{figure}[htb]
+\fbox{\includegraphics[scale=0.3]{5}}
+\end{figure}\\\\\\\\\\\\
+2) $ \int\limits^2_0 = \frac{h}{3} (f(0) + 4f(1) + f(2)) = \frac{1}{3} (1+8+9) = 6 $\\\\\\
+3) $ \int\limits^2_0 = \int\limits^2_0 (x^3 + 1)dx = \frac{x^4}{4} + 4 |^2_0 = \frac{16}{4} + 2 = 6 $\\
 \end{document}
