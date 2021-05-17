@@ -3,6 +3,10 @@
 \usepackage[russian]{babel}
 \usepackage{graphicx}
 \usepackage{caption}
+\usepackage{float}
+\usepackage[left=2cm,right=2cm,
+    top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
+    
 \graphicspath{{pictures/}}
 \DeclareGraphicsExtensions{.pdf,.png,.jpg}
 \begin{document}
@@ -56,11 +60,8 @@ $ [a, b] = [0; 3\pi/2] $\\
 \section{Несобственный интеграл}
 \normalsize
 \subsection{Исследуйте несобственный интеграл на сходимость при всех значениях параметра $ \alpha $}
-
 \large $ \int\limits^{+\infty}_{1} \frac{\ln{x}}{x^{\alpha}}dx $\\
 \normalsize
-
-План:\\
 \subsubsection{Определите особую точку несобственного интеграла. Есть ли другие особые точки? К какому типу относится данный несобственный интеграл? Является ли подынтегральная функция неотрицательной на промежутке интегрирования?}
 Особая точка: $ x = 1 $, так как значение функции в ней всегда равно $ 0 $\\
 Подынтегральная функция не является неотрицательной на промежутке интегрирования\\
@@ -80,6 +81,7 @@ $ \lim_{A\to +\infty} (\frac{-\ln{x}}{(a-1)x^{(a-1)}} - \frac{1}{(a-1)^2 x^{a-1}
 \center{\fbox{\includegraphics[scale=0.15]{20}}}
 \caption*{$ \alpha = 0 $}
 \end{figure}\\
+\newpage
 \begin{figure}[h!]
 \center{\fbox{\includegraphics[scale=0.15]{23}}}
 \caption*{$ \alpha = 3 $}
@@ -107,7 +109,6 @@ $ f(x) = \lim_{x\to \infty} f(x) = \infty => $ расходится\\\\
 $ \int\limits \frac{\ln{x}}{x}dx = \int\limits udu = \frac{u^2}{2} + C = \frac{\ln^2{x}}{2} + C $\\
 \normalsize
 При $ \alpha \in Z $: берётся по частям
-\newpage
 \subsubsection{Сформулируйте признаки сравнения для определения сходимости несобственных интегралов}
 Признаки сравнения:\\
 Первый признак сравнения:\\
@@ -117,7 +118,17 @@ $ 0 \le f(x) \le g(x) $, то из сходимости интеграла $ \in
 Если существует предел $ \lim_{x\to \infty} \frac{f(x)}{g(x)} = k $:\\
 $ (0 < k < \infty, f(x) > 0 $ и $ g(x) > 0) $, то интегралы $ \int\limits^{+\infty}_{a} f(x)dx $ и $ \int\limits^{+\infty}_{a} g(x)dx $ одновременно оба сходятся или оба расходятся
 \subsubsection{Оцените сверху и снизу трансцендентную функцию (логарифм или арктангенс) для сравнения исходного интеграла с интегралом вида $ \int\limits^b_a \frac{1}{x^{\beta}}dx $. Установите, при каких значениях параметра это сравнение позволяет сделать вывод о сходимости интеграла}
-temporarily empty
+Рассмотрим возможные значения параметра $\beta$:\\
+1. $ \beta \in Z $\\
+2. $ \beta < 0 : \lim_{b \to +\infty} \int\limits^b_1 \frac{1}{x^{\beta}}dx = \lim_{b \to +\infty} (\frac{x^{\beta + 1}}{-\beta + 1} |^b_1) = \lim_{b \to +\infty} (\frac{1}{-\beta+1}*(b^{-\beta+1} - 1)) = \infty $\\
+3. $ \beta = 0 : \lim_{b \to +\infty} \int\limits^b_1 \frac{1}{x^{\beta}}dx = \lim_{b \to +\infty} (x |^b_1) = \lim_{b \to +\infty} (b - 1) = \infty $\\
+4. $ \beta = 1 : \lim_{b \to +\infty} \int\limits^b_1 \frac{1}{x^{\beta}}dx = \lim_{b \to +\infty} (\ln{|x| |^b_1}) = \lim_{b \to +\infty} (\ln{|b|} - \ln{|1|}) = \infty $\\
+5. $ \beta \ge 2 : \lim_{b \to +\infty} \int\limits^b_1 \frac{1}{x^{\beta}}dx = \lim_{b \to +\infty} (\frac{-1}{(\beta - 1) x^{\beta - 1}} |^b_1) = \lim_{b \to +\infty} (\frac{-1}{\beta - 1} * (\frac{1}{b^{\beta - 1}} - 1)) = \frac{1}{\beta - 1} $\\
+\small $ x \in [1; +\infty] $\\
+\normalsize
+$ \ln{x} < \frac{1}{x^\beta} $ , $ \beta \leq -1 $ , $ \ln{x} < \frac{1}{x^{\beta}} $ , $ \ln{x} $ - расх. => $ \frac{1}{x^{\beta}} $ - расх.\\
+$ \ln{x} = \frac{1}{x{\beta}} $ \HUGE{X}\\
+$ \ln{x} \ge \frac{1}{x^{\beta}} $ - какое $\beta$ не возьми, около $ x = 1 $ $ \frac{1}{x^{\beta}} будет > \ln{x} => $ не выполняется условие сравнения
 \subsubsection{Вспомните, как ведёт себя интеграл при значении параметра $ \alpha $, при котором легко находится первообразная. Используйте этот интеграл как эталон для сравнения с интегралом при другом параметре $ \alpha $}
 $ a = 0 $\\
 $ f_1 = \ln{x} $ - расходящаяся\\
@@ -168,8 +179,7 @@ $ f(x_0) = 1 \\ f(x_1) = 2 \\ f(x_2) = 3 $\\
 $ x_{2i-2} = x_0 = 0 $\\
 $ x_{2i-1} = x_1 = 1 $\\
 $ x_{2i} = x_2 = 2 $\\
-$ \int\limits^2_0 f(x) \approx \frac{h}{3} (f(0) + 4f(1) + f(2)) = \frac{1}{3} (1 + 8 + 3) = 4 $
-\newpage
+$ \int\limits^2_0 f(x) \approx \frac{h}{3} (f(0) + 4f(1) + f(2)) = \frac{1}{3} (1 + 8 + 3) = 4 $\\
 \small Вывод конечной формулы:
 \normalsize
 \begin{figure}[h!]
@@ -187,9 +197,10 @@ $ x_1 = 1 $\\
 $ x_2 = 2 $\\\\
 Аналогично пункту (а):\\\\
 1) $ \int\limits^2_0 \approx \frac{h}{2} (f(x_0) + 2f(x_1) + f(x_2)) = \frac{1}{2} (1+4+9) = 7 $ - большая погрешность, так как много добавленной (добавочной) лишней площади\\
-\begin{figure}[htb]
+\begin{figure}[h!]
 \fbox{\includegraphics[scale=0.3]{5}}
-\end{figure}\\\\\\\\\\\\
-2) $ \int\limits^2_0 = \frac{h}{3} (f(0) + 4f(1) + f(2)) = \frac{1}{3} (1+8+9) = 6 $\\\\\\
-3) $ \int\limits^2_0 = \int\limits^2_0 (x^3 + 1)dx = \frac{x^4}{4} + 4 |^2_0 = \frac{16}{4} + 2 = 6 $\\
+\end{figure}
+\\
+2) $ \int\limits^2_0 = \frac{h}{3} (f(0) + 4f(1) + f(2)) = \frac{1}{3} (1+8+9) = 6 $\\
+3) $ \int\limits^2_0 = \int\limits^2_0 (x^3 + 1)dx = \frac{x^4}{4} + 4 |^2_0 = \frac{16}{4} + 2 = 6 $
 \end{document}
