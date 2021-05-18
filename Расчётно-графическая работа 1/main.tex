@@ -67,14 +67,14 @@ $ [a, b] = [0; 3\pi/2] $\\
 Подынтегральная функция не является неотрицательной на промежутке интегрирования\\
 Ещё особая точка: $ x = 0 $, но она не входит в предел интегрирования\\
 $ D: x > 0 $\\
-$ \lim_{x\to 1^{+}} \frac{\ln{x}}{x^a} = \frac{0}{1} = 0 $\\\\
+$ \lim\limits_{x\to 1^{+}} \frac{\ln{x}}{x^a} = \frac{0}{1} = 0 $\\\\
 Тип интеграла:\\
 1) Первого рода, так как пределы интегрирования от $ а $ до $ +\infty $\\
-2) $ \int\limits^{+\infty}_{1} \frac{\ln{x}}{x^a}dx = \lim_{A\to +\infty} \int\limits^A_1 \frac{\ln{x}}{x^a}dx $\\
+2) $ \int\limits^{+\infty}_{1} \frac{\ln{x}}{x^a}dx = \lim\limits_{A\to +\infty} \int\limits^A_1 \frac{\ln{x}}{x^a}dx $\\
 $ a = 0 $\\
-$ \lim_{A\to +\infty} \int\limits^A_1 \ln{x}dx = \lim_{A\to +\infty}(\ln{x}x - x |^A_1) = lim_{A\to +\infty} (A (\ln{A} - 1)) + \lim_{A\to +\infty} A \lim_{A\to +\infty} (\ln{A} - 1) + 1 = +\infty $\\
+$ \lim\limits_{A\to +\infty} \int\limits^A_1 \ln{x}dx = \lim\limits_{A\to +\infty}(\ln{x}x - x |^A_1) = \lim\limits_{A\to +\infty} (A (\ln{A} - 1)) + \lim_{A\to +\infty} A \lim_{A\to +\infty} (\ln{A} - 1) + 1 = +\infty $\\
 Для некоторого $ a $:\\
-$ \lim_{A\to +\infty} (\frac{-\ln{x}}{(a-1)x^{(a-1)}} - \frac{1}{(a-1)^2 x^{a-1}} |^A_1) = \lim_{A\to +\infty} (\frac{\ln{A}}{(a-1)A^{a-1}} - \frac{1}{(a-1)^2 A^{a-1}} - (\frac{-\ln{1}}{(a-1)^2 * 1} - \frac{1}{(a-1)^2 * 1})) = \frac{1}{(a-1)^2} $\\
+$ \lim\limits_{A\to +\infty} (\frac{-\ln{x}}{(a-1)x^{(a-1)}} - \frac{1}{(a-1)^2 x^{a-1}} |^A_1) = \lim\limits_{A\to +\infty} (\frac{\ln{A}}{(a-1)A^{a-1}} - \frac{1}{(a-1)^2 A^{a-1}} - (\frac{-\ln{1}}{(a-1)^2 * 1} - \frac{1}{(a-1)^2 * 1})) = \frac{1}{(a-1)^2} $\\
 В зависимости от $ a $, может быть и сходящимся и расходящимся
 \subsubsection{Постройте графики подынтегральной функции при нескольких значениях параметра}
 \begin{figure}[h!]
@@ -102,7 +102,7 @@ $ \lim_{A\to +\infty} (\frac{-\ln{x}}{(a-1)x^{(a-1)}} - \frac{1}{(a-1)^2 x^{a-1}
 При $ \alpha = 0 $:\\
 \large
 $ \int\limits \frac{\ln{x}}{x^{\alpha}}dx = \int\limits \frac{\ln{x}}{x^0}dx = \int\limits \ln{x}dx = u\upsilon - \int\limits ud\upsilon = x\ln{x} - \int\limits x\frac{1}{x}dx = x\ln{x} - x + C = x(\ln{x} - 1) + C $\\
-$ f(x) = \lim_{x\to \infty} f(x) = \infty => $ расходится\\\\
+$ f(x) = \lim\limits_{x\to \infty} f(x) = \infty => $ расходится\\\\
 \normalsize
 При $ \alpha = 1 $:\\
 \large
@@ -118,12 +118,19 @@ $ 0 \le f(x) \le g(x) $, то из сходимости интеграла $ \in
 Если существует предел $ \lim_{x\to \infty} \frac{f(x)}{g(x)} = k $:\\
 $ (0 < k < \infty, f(x) > 0 $ и $ g(x) > 0) $, то интегралы $ \int\limits^{+\infty}_{a} f(x)dx $ и $ \int\limits^{+\infty}_{a} g(x)dx $ одновременно оба сходятся или оба расходятся
 \subsubsection{Оцените сверху и снизу трансцендентную функцию (логарифм или арктангенс) для сравнения исходного интеграла с интегралом вида $ \int\limits^b_a \frac{1}{x^{\beta}}dx $. Установите, при каких значениях параметра это сравнение позволяет сделать вывод о сходимости интеграла}
+Траснцедентная функция: $ \ln{x} $\\
+$ \lim\limits_{x \to +\infty} (\ln{x}) = \infty => $ сверху не ограничена\\
+$ \lim\limits_{x \to 1+} (\ln{x}) = 0 $\\
+Интеграл для сравнения: $ -\int\limits^{+\infty}_{1} \frac{1}{x^{\beta}}dx $\\
+Рассмотрим сходимость интеграла:\\
+$ \int\limits^{+\infty}_{1} \ln{x}dx = \lim\limits_{b \to +\infty} \int\limits^{b}_{1} \ln{x}dx = \lim\limits{b \to +\infty} (\ln{x}x - x |^b_1) = \lim\limits{b \to +\infty} (\ln{b}b - b + 1) = \lim\limits{b \to +\infty} (b(\ln{b} - 1) + 1) = \infty => $ интеграл расходится\\
+$ \int\limits^{+\infty}_1 \frac{1}{x^{\beta}}dx = \lim\limits_{b \to +\infty} \int\limits^b_1 \frac{1}{x^{\beta}}dx $\\
 Рассмотрим возможные значения параметра $\beta$:\\
 1. $ \beta \in Z $\\
-2. $ \beta < 0 : \lim_{b \to +\infty} \int\limits^b_1 \frac{1}{x^{\beta}}dx = \lim_{b \to +\infty} (\frac{x^{\beta + 1}}{-\beta + 1} |^b_1) = \lim_{b \to +\infty} (\frac{1}{-\beta+1}*(b^{-\beta+1} - 1)) = \infty $\\
-3. $ \beta = 0 : \lim_{b \to +\infty} \int\limits^b_1 \frac{1}{x^{\beta}}dx = \lim_{b \to +\infty} (x |^b_1) = \lim_{b \to +\infty} (b - 1) = \infty $\\
-4. $ \beta = 1 : \lim_{b \to +\infty} \int\limits^b_1 \frac{1}{x^{\beta}}dx = \lim_{b \to +\infty} (\ln{|x| |^b_1}) = \lim_{b \to +\infty} (\ln{|b|} - \ln{|1|}) = \infty $\\
-5. $ \beta \ge 2 : \lim_{b \to +\infty} \int\limits^b_1 \frac{1}{x^{\beta}}dx = \lim_{b \to +\infty} (\frac{-1}{(\beta - 1) x^{\beta - 1}} |^b_1) = \lim_{b \to +\infty} (\frac{-1}{\beta - 1} * (\frac{1}{b^{\beta - 1}} - 1)) = \frac{1}{\beta - 1} $\\
+2. $ \beta < 0 : \lim\limits_{b \to +\infty} \int\limits^b_1 \frac{1}{x^{\beta}}dx = \lim\limits_{b \to +\infty} (\frac{x^{\beta + 1}}{-\beta + 1} |^b_1) = \lim\limits_{b \to +\infty} (\frac{1}{-\beta+1}*(b^{-\beta+1} - 1)) = \infty $\\
+3. $ \beta = 0 : \lim\limits_{b \to +\infty} \int\limits^b_1 \frac{1}{x^{\beta}}dx = \lim\limits_{b \to +\infty} (x |^b_1) = \lim\limits_{b \to +\infty} (b - 1) = \infty $\\
+4. $ \beta = 1 : \lim\limits_{b \to +\infty} \int\limits^b_1 \frac{1}{x^{\beta}}dx = \lim\limits_{b \to +\infty} (\ln{|x| |^b_1}) = \lim\limits_{b \to +\infty} (\ln{|b|} - \ln{|1|}) = \infty $\\
+5. $ \beta \ge 2 : \lim\limits_{b \to +\infty} \int\limits^b_1 \frac{1}{x^{\beta}}dx = \lim\limits_{b \to +\infty} (\frac{-1}{(\beta - 1) x^{\beta - 1}} |^b_1) = \lim\limits_{b \to +\infty} (\frac{-1}{\beta - 1} * (\frac{1}{b^{\beta - 1}} - 1)) = \frac{1}{\beta - 1} $\\
 \small $ x \in [1; +\infty] $\\
 \normalsize
 $ \ln{x} < \frac{1}{x^\beta} $ , $ \beta \leq -1 $ , $ \ln{x} < \frac{1}{x^{\beta}} $ , $ \ln{x} $ - расх. => $ \frac{1}{x^{\beta}} $ - расх.\\
@@ -134,11 +141,11 @@ $ a = 0 $\\
 $ f_1 = \ln{x} $ - расходящаяся\\
 $ a = 1 $\\
 $ f_2 = \frac{\ln{x}}{x} $\\
-$ \int\limits^{+\infty}_1 \frac{\ln{x}}{x}dx = \lim_{A\to +\infty} \int\limits^A_1 \frac{\ln{x}}{x}dx = \lim_{A\to +\infty} \int\limits^A_1 \ln{x}d(\ln{x}) = \lim_{A\to +\infty} (\frac{\ln^2{x}}{2} |^A_1) = \lim_{A\to +\infty} \frac{\ln^2{A}}{2} = \infty $ - расходящаяся\\
+$ \int\limits^{+\infty}_1 \frac{\ln{x}}{x}dx = \lim\limits_{A\to +\infty} \int\limits^A_1 \frac{\ln{x}}{x}dx = \lim\limits_{A\to +\infty} \int\limits^A_1 \ln{x}d(\ln{x}) = \lim\limits_{A\to +\infty} (\frac{\ln^2{x}}{2} |^A_1) = \lim\limits_{A\to +\infty} \frac{\ln^2{A}}{2} = \infty $ - расходящаяся\\
 $ f_2 \le f_1 $\\
 $ 0 \le \frac{\ln{x}}{x} \le \ln{x} $\\
-$ \lim_{x\to +\infty} \frac{f_2}{f_1} = \frac{\ln{x}}{x\ln{x}} = 0 $\\
-$ \lim_{x\to +\infty} \frac{f_1}{f_2} = +\infty $
+$ \lim\limits_{x\to +\infty} \frac{f_2}{f_1} = \frac{\ln{x}}{x\ln{x}} = 0 $\\
+$ \lim\limits_{x\to +\infty} \frac{f_1}{f_2} = +\infty $
 \subsubsection{Запишите ответ}
 \newpage
 \Large
