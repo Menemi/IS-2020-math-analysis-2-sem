@@ -4,11 +4,16 @@
 \usepackage{graphicx}
 \usepackage{caption}
 \usepackage{float}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage[unicode, pdftex]{hyperref}
 \usepackage[left=2cm,right=2cm,
     top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
     
 \graphicspath{{pictures/}}
 \DeclareGraphicsExtensions{.pdf,.png,.jpg}
+\definecolor{urlcolor}{HTML}{003bed}
+\hypersetup{pdfstartview=FitH, linkcolor=linkcolor,urlcolor=urlcolor, colorlinks=true}
 \begin{document}
 \begin{center}
 \hfill \break
@@ -35,6 +40,9 @@
 \thispagestyle{empty} % выключаем отображение номера для этой страницы
 \newpage
 \tableofcontents{}
+\vfill
+\bigskip
+\begin{flushright} \href{https://www.overleaf.com/read/sbhfmhchwxzh}{Код отчёта на Overleaf (Latex)} \end{flushright}
 \newpage
 \section{Интегральная сумма}
 \normalsize
@@ -42,18 +50,16 @@
 \\
 $ f(x) = \sin{x} $\\
 $ [a, b] = [0; 3\pi/2] $\\
-
-Что мы сделали:\\
-- Изобразили график функции\\
-- Изобразили криволинейную трапецию, ограниченную графиком функции, вертикальными прямыми, проходящими через концы отрезка, и осью O$x$\\
-- Разбили отрезок на $n$ элементарных отрезков, точками отметьте их концы на рисунке\\
-- Выбрали по точке внутри каждого элементарного отрезка, отметили их на рисунке\\
-- Вычислили значения функции в выбранных точках, отметили их на рисунке\\
-- Изобразили ступенчатую фигуру на основе выбранного разбиения и точек внутри элементарных отрезков\\
-
+\subsubsection{Интегральная сумма}
 \begin{figure}[h!]
 \center{\fbox{\includegraphics[scale=0.1]{1}}}
 \caption*{\url{https://clck.ru/UjTMB}}
+\end{figure}
+\subsubsection{Последовательность интегральных сумм}
+
+\begin{figure}[h!]
+\center{\fbox{\includegraphics[scale=0.1]{12}}}
+\caption*{\url{https://clck.ru/V6j8C}}
 \end{figure}
 \newpage
 \Large
@@ -72,10 +78,10 @@ $ \lim\limits_{x\to 1^{+}} \frac{\ln{x}}{x^a} = \frac{0}{1} = 0 $\\\\
 1) Первого рода, так как пределы интегрирования от $ а $ до $ +\infty $\\
 2) $ \int\limits^{+\infty}_{1} \frac{\ln{x}}{x^a}dx = \lim\limits_{A\to +\infty} \int\limits^A_1 \frac{\ln{x}}{x^a}dx $\\
 $ a = 0 $\\
-$ \lim\limits_{A\to +\infty} \int\limits^A_1 \ln{x}dx = \lim\limits_{A\to +\infty}(\ln{x}x - x |^A_1) = \lim\limits_{A\to +\infty} (A (\ln{A} - 1)) + \lim_{A\to +\infty} A \lim_{A\to +\infty} (\ln{A} - 1) + 1 = +\infty $\\
+$ \lim\limits_{A\to +\infty} \int\limits^A_1 \ln{x}dx = \lim\limits_{A\to +\infty}(\ln{x}x - x |^A_1) = \lim\limits_{A \to +\infty} (A (\ln{A-1}) + 1) = \lim\limits_{A \to +\infty} (A (\ln{A - 1})) + \lim\limits_{A \to +\infty} (1) = \lim\limits_{A \to +\infty} (A) * \lim\limits_{A \to +\infty} (\ln{A - 1}) + 1 = +\infty $\\
 Для некоторого $ a $:\\
-$ \lim\limits_{A\to +\infty} (\frac{-\ln{x}}{(a-1)x^{(a-1)}} - \frac{1}{(a-1)^2 x^{a-1}} |^A_1) = \lim\limits_{A\to +\infty} (\frac{\ln{A}}{(a-1)A^{a-1}} - \frac{1}{(a-1)^2 A^{a-1}} - (\frac{-\ln{1}}{(a-1)^2 * 1} - \frac{1}{(a-1)^2 * 1})) = \frac{1}{(a-1)^2} $\\
-В зависимости от $ a $, может быть и сходящимся и расходящимся
+$ \lim\limits_{A\to +\infty} (\frac{-\ln{x}}{(a-1)x^{(a-1)}} - \frac{1}{(a-1)^2 x^{a-1}} |^A_1) = \lim\limits_{A\to +\infty} (\frac{-\ln{A}}{(a-1)A^{a-1}} - \frac{1}{(a-1)^2 A^{a-1}} - (\frac{-\ln{1}}{(a-1)^2 * 1} - \frac{1}{(a-1)^2 * 1})) = \frac{1}{(a-1)^2} $\\
+В зависимости от $ a $, может быть и сходящимся, и расходящимся
 \subsubsection{Постройте графики подынтегральной функции при нескольких значениях параметра}
 \begin{figure}[h!]
 \center{\fbox{\includegraphics[scale=0.15]{20}}}
@@ -123,11 +129,11 @@ $ \lim\limits_{x \to +\infty} (\ln{x}) = \infty => $ сверху не огра�
 $ \lim\limits_{x \to 1+} (\ln{x}) = 0 $\\
 Интеграл для сравнения: $ -\int\limits^{+\infty}_{1} \frac{1}{x^{\beta}}dx $\\
 Рассмотрим сходимость интеграла:\\
-$ \int\limits^{+\infty}_{1} \ln{x}dx = \lim\limits_{b \to +\infty} \int\limits^{b}_{1} \ln{x}dx = \lim\limits{b \to +\infty} (\ln{x}x - x |^b_1) = \lim\limits{b \to +\infty} (\ln{b}b - b + 1) = \lim\limits{b \to +\infty} (b(\ln{b} - 1) + 1) = \infty => $ интеграл расходится\\
+$ \int\limits^{+\infty}_{1} \ln{x}dx = \lim\limits_{b \to +\infty} \int\limits^{b}_{1} \ln{x}dx = \lim\limits_{b \to +\infty} (\ln{x}x - x |^b_1) = \lim\limits_{b \to +\infty} (\ln{b}b - b + 1) = \lim\limits_{b \to +\infty} (b(\ln{b} - 1) + 1) = \infty => $ интеграл расходится\\
 $ \int\limits^{+\infty}_1 \frac{1}{x^{\beta}}dx = \lim\limits_{b \to +\infty} \int\limits^b_1 \frac{1}{x^{\beta}}dx $\\
 Рассмотрим возможные значения параметра $\beta$:\\
 1. $ \beta \in Z $\\
-2. $ \beta < 0 : \lim\limits_{b \to +\infty} \int\limits^b_1 \frac{1}{x^{\beta}}dx = \lim\limits_{b \to +\infty} (\frac{x^{\beta + 1}}{-\beta + 1} |^b_1) = \lim\limits_{b \to +\infty} (\frac{1}{-\beta+1}*(b^{-\beta+1} - 1)) = \infty $\\
+2. $ \beta < 0 : \lim\limits_{b \to +\infty} \int\limits^b_1 \frac{1}{x^{\beta}}dx = \lim\limits_{b \to +\infty} (\frac{x^{-\beta + 1}}{-\beta + 1} |^b_1) = \lim\limits_{b \to +\infty} (\frac{1}{-\beta+1}*(b^{-\beta+1} - 1)) = \infty $\\
 3. $ \beta = 0 : \lim\limits_{b \to +\infty} \int\limits^b_1 \frac{1}{x^{\beta}}dx = \lim\limits_{b \to +\infty} (x |^b_1) = \lim\limits_{b \to +\infty} (b - 1) = \infty $\\
 4. $ \beta = 1 : \lim\limits_{b \to +\infty} \int\limits^b_1 \frac{1}{x^{\beta}}dx = \lim\limits_{b \to +\infty} (\ln{|x| |^b_1}) = \lim\limits_{b \to +\infty} (\ln{|b|} - \ln{|1|}) = \infty $\\
 5. $ \beta \ge 2 : \lim\limits_{b \to +\infty} \int\limits^b_1 \frac{1}{x^{\beta}}dx = \lim\limits_{b \to +\infty} (\frac{-1}{(\beta - 1) x^{\beta - 1}} |^b_1) = \lim\limits_{b \to +\infty} (\frac{-1}{\beta - 1} * (\frac{1}{b^{\beta - 1}} - 1)) = \frac{1}{\beta - 1} $\\
@@ -146,7 +152,6 @@ $ f_2 \le f_1 $\\
 $ 0 \le \frac{\ln{x}}{x} \le \ln{x} $\\
 $ \lim\limits_{x\to +\infty} \frac{f_2}{f_1} = \frac{\ln{x}}{x\ln{x}} = 0 $\\
 $ \lim\limits_{x\to +\infty} \frac{f_1}{f_2} = +\infty $
-\subsubsection{Запишите ответ}
 \newpage
 \Large
 \section{Приложения определенного интеграла}
@@ -163,7 +168,7 @@ $ dp = \rho gxdS = p_1 $\\
 \end{figure}\\
 $ dS_1 = dx*dl $\\
 $ dp_1 = \rho gk*dx*dl $\\
-$ p_1 = \int\limits^{2*2\pi}_0 \rho gk*dx*dl = \rho gk*dx*dl \int\limits^{2*2\pi}_0 dl = 4\pi \rho gk*dx $\\
+$ p_1 = \int\limits^{2*2\pi}_0 \rho gk*dx*dl = \rho gk*dx \int\limits^{2*2\pi}_0 dl = 4\pi \rho gk*dx $\\
 $ p = \int\limits^6_0 4\pi \rho gx*dx = 4\pi \rho g \int\limits^6_0 x*dx = 4\pi \rho g\frac{x^2}{2} |^6_0 = 72\pi \rho g $\\
 \small$ g = 9.81 $\\
 \normalsize$ 72\pi \rho g \approx 2.21897*10^6$
@@ -191,12 +196,11 @@ $ \int\limits^2_0 f(x) \approx \frac{h}{3} (f(0) + 4f(1) + f(2)) = \frac{1}{3} (
 \normalsize
 \begin{figure}[h!]
 \center{\fbox{\includegraphics[scale=0.6]{cout4}}}
-\caption*{\url{https://clck.ru/UmPuV}}
 \end{figure}\\
 3) \large\textit{Подсчёт интеграла напрямую:}\\
 \normalsize
 $ \int\limits^2_0 (x + 1)dx = \frac{x^2}{2} + x |^2_0 = \frac{4}{2} + 2 - 0 = 4 $\\
-\\\\
+\newpage
 \Large b) $ f(x) = 1 + x^3 $\\
 \normalsize
 $ x_0 = 0 $\\
